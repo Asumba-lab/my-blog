@@ -43,7 +43,7 @@ A modern, responsive tech blog website showcasing the latest trends in technolog
 ### Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/tech-blog.git
+git clone https://github.com/Asumba-lab/my-blog.git
 ```
 
 2. Navigate to the project directory:
@@ -96,9 +96,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👤 Author
 **Steve Ogolla**
-- Website: [Your Website]
-- GitHub: [@yourusername]
-- LinkedIn: [Your LinkedIn]
+- Website:  https://asumba-lab.github.io/my-blog/
+- GitHub: @Asumba-lab
+- LinkedIn: linkedin.com/in/steve-asumba-091441245
 
 ## 🙏 Acknowledgments
 - Images from [Unsplash](https://unsplash.com)
