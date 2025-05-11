@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            transition: background 0.4s;
+        }
+        .dark-mode {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            color: #f3f3f3;
+        }
+        .main-hero {
+            background: linear-gradient(120deg, #3498db 60%, #8e44ad 100%);
+            color: white;
+            padding: 7rem 2rem 5rem 2rem;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.15);
+            position: relative;
+        }
+        .main-hero .main-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            background: linear-gradient(90deg, #8e44ad, #3498db);
+            border-radius: 50%;
+            padding: 0.7rem 1.1rem;
+            box-shadow: 0 2px 12px rgba(52,152,219,0.15);
+            display: inline-block;
+        }
+        .main-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .main-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        .welcome-quote {
+            font-style: italic;
+            color: #8e44ad;
+            background: #f3e9fa;
+            border-left: 4px solid #8e44ad;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 2rem auto 0 auto;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 8px rgba(142,68,173,0.07);
+            max-width: 600px;
+        }
+        .posts-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .posts-section h2 {
+            color: #3498db;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .post-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.13);
+            transition: transform 0.3s cubic-bezier(.39,.575,.56,1.000), box-shadow 0.3s cubic-bezier(.39,.575,.56,1.000);
+            animation: fadeInUp 1s cubic-bezier(.39,.575,.56,1.000);
+            position: relative;
+        }
+        .post-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(52,152,219,0.13);
+        }
+        .post-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px 16px 0 0;
+        }
+        .post-content {
+            padding: 1.5rem;
+        }
+        .post-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .post-content p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .post-content a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .post-content a:hover {
+            text-decoration: underline;
+        }
+        .dark-mode .post-card {
+            background: #232526;
+            color: #f3f3f3;
+            box-shadow: 0 4px 24px rgba(30,30,30,0.25);
+        }
+        .dark-mode .post-content h3 {
+            color: #fff;
+        }
+        .dark-mode .post-content p {
+            color: #ccc;
+        }
+        .dark-mode .posts-section h2, .dark-mode .main-hero h1 {
+            color: #7ed6df;
+        }
+        .dark-mode .welcome-quote {
+            background: #232526;
+            color: #7ed6df;
+            border-left: 4px solid #7ed6df;
+        }
+        .dark-mode .main-hero {
+            background: linear-gradient(120deg, #232526 60%, #414345 100%);
+            color: #f3f3f3;
+        }
+        .dark-mode .main-hero .main-icon {
+            background: linear-gradient(90deg, #232526, #414345);
+        }
+        .dark-mode .post-card img {
+            filter: brightness(0.8);
+        }
+        .dark-mode .post-content a {
+            color: #7ed6df;
+        }
+        .dark-mode .post-content a:hover {
+            color: #fff;
+        }
+        .dark-mode .footer-section, .dark-mode .footer-content, .dark-mode .footer-bottom {
+            background: #232526 !important;
+            color: #f3f3f3 !important;
+        }
+        .dark-mode .footer-section a {
+            color: #7ed6df !important;
+        }
+        .dark-mode .footer-section a:hover {
+            color: #fff !important;
+        }
+        .dark-mode .logo {
+            color: #7ed6df;
+        }
+        .dark-toggle {
+            cursor: pointer;
+            font-size: 1.7rem;
+            margin-left: 1.5rem;
+            vertical-align: middle;
+            transition: color 0.3s;
+        }
+        .dark-toggle:hover {
+            color: #8e44ad;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .main-hero {
+                padding: 4rem 1rem 2rem 1rem;
+            }
+            .main-hero h1 {
+                font-size: 2rem;
+            }
+            .posts-section {
+                padding: 0 1rem;
+            }
+        }
+        .topic-modal {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(44,62,80,0.5);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .topic-modal-content {
+            background: #fff;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 90%;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+            position: relative;
+            animation: fadeInUp 0.5s cubic-bezier(.39,.575,.56,1.000);
+        }
+        .topic-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            font-size: 2rem;
+            color: #8e44ad;
+            cursor: pointer;
+        }
+        .topic-modal-content h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        .topic-modal-content p {
+            color: #333;
+            font-size: 1.08rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Blog</div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html">Posts</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact/contact.html">Contact</a></li>
+            </ul>
+            <span class="dark-toggle" id="darkToggle" title="Toggle dark mode">🌙</span>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="main-hero">
+            <span class="main-icon">🚀</span>
+            <h1>Welcome to the Blog</h1>
+            <p>Explore the latest posts, tutorials, and insights in technology, AI, Web3, and more. Curated by Steve Ogolla.</p>
+            <div class="welcome-quote">“Inspiring innovation and sharing knowledge for a brighter digital future.”</div>
+        </section>
+
+        <section id="featured-posts">
+            <h2>Latest Technology Trends</h2>
+            <div class="posts-grid">
+                <article class="post-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60" 
+                             alt="AI Technology - Neural Network Visualization"
+                             loading="lazy">
+                    </div>
+                    <div class="post-content">
+                        <h3>The Rise of Generative AI in 2024</h3>
+                        <p class="post-meta">Posted on <time datetime="2024-03-20">March 20, 2024</time></p>
+                        <p class="post-excerpt">Exploring how generative AI models like GPT-4 and DALL-E are revolutionizing content creation, software development, and business operations...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop&q=60" 
+                             alt="Web3 Technology - Blockchain Concept"
+                             loading="lazy">
+                    </div>
+                    <div class="post-content">
+                        <h3>Web3 and the Future of Decentralization</h3>
+                        <p class="post-meta">Posted on <time datetime="2024-03-19">March 19, 2024</time></p>
+                        <p class="post-excerpt">Understanding the impact of blockchain technology, decentralized applications, and the evolution of the internet...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&auto=format&fit=crop&q=60" 
+                             alt="Quantum Computing - Quantum Circuit"
+                             loading="lazy">
+                    </div>
+                    <div class="post-content">
+                        <h3>Quantum Computing Breakthroughs</h3>
+                        <p class="post-meta">Posted on <time datetime="2024-03-18">March 18, 2024</time></p>
+                        <p class="post-excerpt">Recent advances in quantum computing and their potential applications in cryptography, drug discovery, and optimization problems...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&auto=format&fit=crop&q=60" 
+                             alt="Sustainable Technology - Green Energy"
+                             loading="lazy">
+                    </div>
+                    <div class="post-content">
+                        <h3>Sustainable Technology Solutions</h3>
+                        <p class="post-meta">Posted on <time datetime="2024-03-17">March 17, 2024</time></p>
+                        <p class="post-excerpt">How green technology and sustainable practices are shaping the future of tech industry and environmental conservation...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=60" alt="6G Wireless Technology">
+                    <div class="post-content">
+                        <h3>6G Wireless Technology</h3>
+                        <p class="post-meta">Posted on <time datetime="2025-03-28">March 28, 2025</time></p>
+                        <p class="post-excerpt">Explore the future of ultra-fast, low-latency 6G networks and their impact on IoT, smart cities, and immersive digital experiences...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=800&auto=format&fit=crop&q=60" alt="Augmented Reality in Education">
+                    <div class="post-content">
+                        <h3>Augmented Reality in Education</h3>
+                        <p class="post-meta">Posted on <time datetime="2025-02-15">February 15, 2025</time></p>
+                        <p class="post-excerpt">See how AR is revolutionizing classrooms, making learning more interactive, immersive, and accessible for students worldwide...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="post-card">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&auto=format&fit=crop&q=60" alt="Biometric Security Advances">
+                    <div class="post-content">
+                        <h3>Biometric Security Advances</h3>
+                        <p class="post-meta">Posted on <time datetime="2025-01-30">January 30, 2025</time></p>
+                        <p class="post-excerpt">Learn about the latest breakthroughs in biometric authentication, from facial recognition to voice and behavioral biometrics, enhancing digital security in 2025...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="trending-topics">
+            <h2>Trending Topics</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <h3>Artificial Intelligence</h3>
+                    <ul>
+                        <li class="topic-link" data-topic="ml">Machine Learning Advances</li>
+                        <li class="topic-link" data-topic="nlp">Natural Language Processing</li>
+                        <li class="topic-link" data-topic="cv">Computer Vision</li>
+                        <li class="topic-link" data-topic="ai-ethics">AI Ethics and Governance</li>
+                    </ul>
+                </div>
+                <div class="topic-card">
+                    <h3>Cybersecurity</h3>
+                    <ul>
+                        <li class="topic-link" data-topic="zero-trust">Zero Trust Architecture</li>
+                        <li class="topic-link" data-topic="cloud-security">Cloud Security</li>
+                        <li class="topic-link" data-topic="threat-intel">Threat Intelligence</li>
+                        <li class="topic-link" data-topic="privacy">Privacy Protection</li>
+                    </ul>
+                </div>
+                <div class="topic-card">
+                    <h3>Cloud Computing</h3>
+                    <ul>
+                        <li class="topic-link" data-topic="serverless">Serverless Architecture</li>
+                        <li class="topic-link" data-topic="edge">Edge Computing</li>
+                        <li class="topic-link" data-topic="multi-cloud">Multi-cloud Strategies</li>
+                        <li class="topic-link" data-topic="cloud-native">Cloud Native Development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Topic Info Modal -->
+        <div id="topicModal" class="topic-modal" style="display:none;">
+            <div class="topic-modal-content">
+                <span class="topic-modal-close" id="topicModalClose">&times;</span>
+                <h3 id="topicModalTitle"></h3>
+                <p id="topicModalBody"></p>
+            </div>
+        </div>
+
+        <section id="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>A blog dedicated to sharing knowledge about web development and technology.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="index.html">Posts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="GitHub">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 My Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkToggle');
+    darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        darkToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+    // On load, set mode from localStorage
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        darkToggle.textContent = '☀️';
+    }
+    // Topic info data
+    const topicInfo = {
+      ml: {
+        title: 'Machine Learning Advances',
+        body: 'Machine learning is evolving rapidly, with new algorithms and architectures enabling more accurate predictions, faster training, and real-time decision-making. In 2025, advances in deep learning, reinforcement learning, and transfer learning are powering breakthroughs in healthcare, finance, and autonomous systems.'
+      },
+      nlp: {
+        title: 'Natural Language Processing',
+        body: 'NLP enables computers to understand, interpret, and generate human language. Recent innovations include large language models, real-time translation, and sentiment analysis, making communication with machines more natural and effective.'
+      },
+      cv: {
+        title: 'Computer Vision',
+        body: 'Computer vision allows machines to interpret and understand visual information. Applications in 2025 include facial recognition, autonomous vehicles, medical imaging, and smart surveillance, all benefiting from improved accuracy and speed.'
+      },
+      'ai-ethics': {
+        title: 'AI Ethics and Governance',
+        body: 'As AI becomes more pervasive, ethical considerations and governance frameworks are essential. Topics include bias mitigation, transparency, accountability, and ensuring AI systems align with human values and societal norms.'
+      },
+      'zero-trust': {
+        title: 'Zero Trust Architecture',
+        body: 'Zero Trust is a security model that assumes no user or device is trusted by default. It enforces strict identity verification, least-privilege access, and continuous monitoring to protect against modern cyber threats.'
+      },
+      'cloud-security': {
+        title: 'Cloud Security',
+        body: 'Cloud security focuses on protecting data, applications, and infrastructure in cloud environments. In 2025, advanced encryption, identity management, and automated threat detection are key to securing cloud workloads.'
+      },
+      'threat-intel': {
+        title: 'Threat Intelligence',
+        body: 'Threat intelligence involves collecting and analyzing information about current and potential cyber threats. Organizations use this data to anticipate attacks, strengthen defenses, and respond proactively to incidents.'
+      },
+      privacy: {
+        title: 'Privacy Protection',
+        body: 'Privacy protection is critical in the digital age. Techniques like data anonymization, secure authentication, and privacy-by-design are helping organizations comply with regulations and safeguard user data.'
+      },
+      serverless: {
+        title: 'Serverless Architecture',
+        body: 'Serverless computing allows developers to build and run applications without managing servers. It offers scalability, cost efficiency, and faster deployment, making it ideal for modern cloud-native apps.'
+      },
+      edge: {
+        title: 'Edge Computing',
+        body: 'Edge computing processes data closer to the source, reducing latency and bandwidth usage. It enables real-time analytics for IoT, autonomous vehicles, and smart cities, improving performance and reliability.'
+      },
+      'multi-cloud': {
+        title: 'Multi-cloud Strategies',
+        body: 'Multi-cloud strategies involve using multiple cloud providers to optimize performance, enhance resilience, and avoid vendor lock-in. Organizations can choose the best services for each workload and ensure business continuity.'
+      },
+      'cloud-native': {
+        title: 'Cloud Native Development',
+        body: 'Cloud native development leverages containers, microservices, and DevOps practices to build scalable, resilient applications. It enables rapid innovation and seamless deployment across cloud environments.'
+      }
+    };
+    // Modal logic
+    document.querySelectorAll('.topic-link').forEach(link => {
+      link.addEventListener('click', function() {
+        const topic = this.getAttribute('data-topic');
+        if (topicInfo[topic]) {
+          document.getElementById('topicModalTitle').textContent = topicInfo[topic].title;
+          document.getElementById('topicModalBody').textContent = topicInfo[topic].body;
+          document.getElementById('topicModal').style.display = 'flex';
+        }
+      });
+    });
+    document.getElementById('topicModalClose').onclick = function() {
+      document.getElementById('topicModal').style.display = 'none';
+    };
+    window.onclick = function(event) {
+      if (event.target === document.getElementById('topicModal')) {
+        document.getElementById('topicModal').style.display = 'none';
+      }
+    };
+    </script>
+</body>
+</html> 

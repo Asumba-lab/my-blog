@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - My Tech Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        }
+        .home-hero {
+            background: linear-gradient(120deg, #3498db 60%, #8e44ad 100%);
+            color: white;
+            padding: 7rem 2rem 5rem 2rem;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.15);
+            position: relative;
+        }
+        .home-hero .home-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            background: linear-gradient(90deg, #8e44ad, #3498db);
+            border-radius: 50%;
+            padding: 0.7rem 1.1rem;
+            box-shadow: 0 2px 12px rgba(52,152,219,0.15);
+            display: inline-block;
+        }
+        .home-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .home-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        .welcome-quote {
+            font-style: italic;
+            color: #8e44ad;
+            background: #f3e9fa;
+            border-left: 4px solid #8e44ad;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 2rem auto 0 auto;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 8px rgba(142,68,173,0.07);
+            max-width: 600px;
+        }
+        .featured-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        .featured-section h2 {
+            color: #3498db;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        .featured-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .featured-post-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.13);
+            transition: transform 0.3s cubic-bezier(.39,.575,.56,1.000), box-shadow 0.3s cubic-bezier(.39,.575,.56,1.000);
+            animation: fadeInUp 1s cubic-bezier(.39,.575,.56,1.000);
+            position: relative;
+        }
+        .featured-post-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(52,152,219,0.13);
+        }
+        .featured-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #8e44ad, #3498db);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.3rem 1rem;
+            border-radius: 12px;
+            margin: 1rem 0 0 1rem;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .featured-post-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 16px 16px 0 0;
+        }
+        .featured-post-content {
+            padding: 1.5rem;
+        }
+        .featured-post-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .featured-post-content p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .featured-post-content a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .featured-post-content a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .home-hero {
+                padding: 4rem 1rem 2rem 1rem;
+            }
+            .home-hero h1 {
+                font-size: 2rem;
+            }
+            .featured-section {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Blog</div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html#posts">Posts</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact/contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="home-hero">
+            <span class="home-icon">💡</span>
+            <h1>Welcome to My Tech Blog</h1>
+            <p>Stay updated with the latest trends in technology, AI, Web3, quantum computing, and sustainable innovation. Explore in-depth articles, tutorials, and insights curated by Steve Ogolla.</p>
+            <div class="welcome-quote">“Empowering minds and shaping the future through technology, one post at a time.”</div>
+        </section>
+        <section class="featured-section">
+            <h2>Featured Posts</h2>
+            <div class="featured-posts-grid">
+                <div class="featured-post-card">
+                    <span class="featured-badge">Featured</span>
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60" alt="Generative AI">
+                    <div class="featured-post-content">
+                        <h3>The Rise of Generative AI in 2024</h3>
+                        <p>Discover how generative AI is transforming industries, creativity, and the future of technology.</p>
+                        <a href="post.html">Read More</a>
+                    </div>
+                </div>
+                <div class="featured-post-card">
+                    <span class="featured-badge">Featured</span>
+                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?w=800&auto=format&fit=crop&q=60" alt="Web3 Blockchain">
+                    <div class="featured-post-content">
+                        <h3>Web3 and the Future of Decentralization</h3>
+                        <p>Explore the impact of blockchain, dApps, and decentralized finance on the next generation of the web.</p>
+                        <a href="post.html#web3">Read More</a>
+                    </div>
+                </div>
+                <div class="featured-post-card">
+                    <span class="featured-badge">Featured</span>
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&auto=format&fit=crop&q=60" alt="Quantum Computing">
+                    <div class="featured-post-content">
+                        <h3>Quantum Computing Breakthroughs</h3>
+                        <p>Learn about the latest advances in quantum computing and their real-world applications.</p>
+                        <a href="post.html#quantum">Read More</a>
+                    </div>
+                </div>
+                <div class="featured-post-card">
+                    <span class="featured-badge">Featured</span>
+                    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=800&auto=format&fit=crop&q=60" alt="Sustainable Technology">
+                    <div class="featured-post-content">
+                        <h3>Sustainable Technology Solutions</h3>
+                        <p>See how technology is driving sustainability and eco-friendly innovation for a greener future.</p>
+                        <a href="post.html#sustainable">Read More</a>
+                    </div>
+                </div>
+                <div class="featured-post-card">
+                    <span class="featured-badge">Featured</span>
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop&q=60" alt="Cybersecurity">
+                    <div class="featured-post-content">
+                        <h3>Cybersecurity in a Digital World</h3>
+                        <p>Discover the latest trends in cybersecurity, from zero trust to AI-driven threat detection and privacy protection.</p>
+                        <a href="post.html#cybersecurity">Read More</a>
+                    </div>
+                </div>
+                <div class="featured-post-card">
+                    <span class="featured-badge">Featured</span>
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop&q=60" alt="Cloud Computing Illustration">
+                    <div class="featured-post-content">
+                        <h3>Cloud Computing & Edge Innovation</h3>
+                        <p>Explore how cloud and edge computing are powering scalable, efficient, and intelligent digital solutions.</p>
+                        <a href="post.html#cloud">Read More</a>
+                    </div>
+                </div>
+                <div class="featured-post-card">
+                    <span class="featured-badge">Featured</span>
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop&q=60" alt="AI in Healthcare">
+                    <div class="featured-post-content">
+                        <h3>AI in Healthcare</h3>
+                        <p>See how artificial intelligence is revolutionizing diagnostics, patient care, and medical research.</p>
+                        <a href="post.html#healthcare">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Me</h3>
+                <p>A blog dedicated to sharing knowledge about web development and technology.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="index.html#posts">Posts</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Me</h3>
+                <div class="social-links">
+                    <a href="https://github.com/Asumba-lab" aria-label="GitHub" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/steve-asumba-091441245/" aria-label="LinkedIn" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 My Blog. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 

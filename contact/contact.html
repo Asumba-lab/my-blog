@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - My Tech Blog</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        }
+        .contact-hero {
+            background: linear-gradient(120deg, #3498db 60%, #8e44ad 100%);
+            color: white;
+            padding: 7rem 2rem 5rem 2rem;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.15);
+            position: relative;
+        }
+        .contact-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .contact-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            background: linear-gradient(90deg, #8e44ad, #3498db);
+            border-radius: 50%;
+            padding: 0.7rem 1.1rem;
+            box-shadow: 0 2px 12px rgba(52,152,219,0.15);
+            display: inline-block;
+        }
+        .contact-info, .contact-form {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(44,62,80,0.13);
+            max-width: 600px;
+            margin: 2.5rem auto;
+            padding: 2.5rem 2rem 2rem 2rem;
+            animation: fadeInUp 1s cubic-bezier(.39,.575,.56,1.000);
+        }
+        .contact-info h2, .contact-form h2 {
+            color: #3498db;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        .contact-info li {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .contact-info li strong {
+            color: #8e44ad;
+            min-width: 70px;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            word-break: break-all;
+            transition: color 0.2s;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #8e44ad;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            background: #f8f9fa;
+            transition: border 0.2s;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border: 1.5px solid #3498db;
+            outline: none;
+        }
+        .contact-form button {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(90deg, #3498db, #8e44ad);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+            box-shadow: 0 2px 8px rgba(52,152,219,0.10);
+        }
+        .contact-form button:hover {
+            background: linear-gradient(90deg, #8e44ad, #3498db);
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 768px) {
+            .contact-hero {
+                padding: 4rem 1rem 2rem 1rem;
+            }
+            .contact-info, .contact-form {
+                padding: 1.5rem 1rem 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">My Blog</div>
+            <ul class="nav-links">
+                <li><a href="../home.html">Home</a></li>
+                <li><a href="../index.html">Posts</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-hero">
+            <span class="contact-icon">✉️</span>
+            <h1>Contact Me</h1>
+            <p>I'd love to hear from you! Whether you have a question, feedback, or just want to connect, feel free to reach out using the information below or the contact form.</p>
+        </section>
+        <section class="contact-info">
+            <h2>Contact Information</h2>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:steveasumba@gmail.com">steveasumba@gmail.com</a></li>
+                <li><strong>Phone:</strong> <a href="tel:+25469724049">+25469724049</a></li>
+                <li><strong>GitHub:</strong> <a href="https://github.com/Asumba-lab" target="_blank">github.com/Asumba-lab</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/steve-asumba-091441245/" target="_blank">linkedin.com/in/steve-asumba-091441245</a></li>
+            </ul>
+        </section>
+        <section class="contact-form">
+            <form id="contactForm">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Me</h3>
+                <p>A blog dedicated to sharing knowledge about web development and technology.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../index.html">Posts</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Me</h3>
+                <div class="social-links">
+                    <a href="https://github.com/Asumba-lab" aria-label="GitHub" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/steve-asumba-091441245/" aria-label="LinkedIn" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 My Blog. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for reaching out! I will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 
